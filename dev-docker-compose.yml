@@ -1,0 +1,52 @@
+version: "3.7"
+services:
+  server:
+    # build an image named wgc-server
+    build:
+      context: ./server
+      dockerfile: Dockerfile-dev
+    image: wgc-server
+    container_name: wgc-node-server
+    # run command, nodemon for hot reloading
+    command: npx nodemon index.js
+    # volumes to mount
+    volumes:
+      - ./server/:/usr/app/server
+      - /usr/app/server/node_modules
+    # port mapping
+    ports:
+      - "5000:5000"
+    env_file: .env
+    networks:
+      - app-network
+    restart: always
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile-dev
+    image: wgc-client
+    stdin_open: true
+    tty: true
+    container_name: wgc-react-client
+    command: npm start
+    volumes:
+      - ./client/:/usr/app/client
+      - /usr/app/client/node_modules
+    depends_on:
+      - server
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+    restart: always
+
+networks:
+    app-network:
+        driver: bridge
+
+volumes:
+    data-volume:
+    node_modules:
+    web-root:
+      driver: local
