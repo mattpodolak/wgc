@@ -9,7 +9,6 @@ WORKDIR /usr/app/server
 
 # Install Dependencies
 COPY package*.json ./
-RUN ls
 RUN npm ci
 
 # Copy local files to server folder
