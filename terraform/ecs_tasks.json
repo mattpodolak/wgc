@@ -1,0 +1,42 @@
+[
+    {
+      "name": "wgc-server-task",
+      "image": "${server_image_url}",
+      "essential": true,
+      "memory": 512,
+      "cpu": 256,
+      "environment": [
+        {
+          "name": "USER",
+          "value": "${USER}"
+        },
+        {
+          "name": "PASS",
+          "value": "${PASS}"
+        },
+        {
+          "name": "NODE_ENV",
+          "value": "production"
+        }
+      ],
+      "portMappings": [
+        {
+          "containerPort": 5000,
+          "hostPort": 5000
+        }
+      ]
+    },
+    {
+        "name": "wgc-client-task",
+        "image": "${client_image_url}",
+        "essential": true,
+        "memory": 512,
+        "cpu": 256,
+        "portMappings": [
+          {
+            "containerPort": 80,
+            "hostPort": 80
+          }
+        ]
+      }
+  ]
