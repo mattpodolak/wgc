@@ -6,6 +6,7 @@ data "aws_iam_policy_document" "assume_role_policy" {
       type        = "Service"
       identifiers = ["ecs-tasks.amazonaws.com"]
     }
+    # resources = [aws_cloudwatch_log_group.wgc_express.arn, aws_cloudwatch_log_group.wgc_react.arn]
   }
 }
 
