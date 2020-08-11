@@ -1,31 +1,32 @@
 version: "3.7"
 services:
-  server:
+  wgc-server:
     # build an image named wgc-server
     build:
       context: ./server
       dockerfile: Dockerfile
-    image: p-wgc-server
-    container_name: p-wgc-node-server
+    image: p-wgc-server-img
+    container_name: p-wgc-server
     # port mapping
     ports:
       - "5000:5000"
+    # env_file: .env
     environment:
-      - NODE_ENV
-      - USER
-      - PASS
+    - NODE_ENV
+    - USER
+    - PASS
     networks:
       - app-network
     restart: always
 
-  client:
+  wgc-client:
     build:
       context: ./client
       dockerfile: Dockerfile
-    image: p-wgc-client
-    container_name: p-wgc-react-client
+    image: p-wgc-client-img
+    container_name: p-wgc-client
     depends_on:
-      - server
+      - wgc-server
     ports:
       - "80:80"
     networks:
