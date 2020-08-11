@@ -1,6 +1,6 @@
 [
   {
-    "name": "wgc-server-task",
+    "name": "wgc-server",
     "image": "${server_image_url}",
     "essential": true,
     "memory": 512,
@@ -35,7 +35,7 @@
     }
   },
   {
-    "name": "wgc-client-task",
+    "name": "wgc-client",
     "image": "${client_image_url}",
     "essential": true,
     "memory": 512,

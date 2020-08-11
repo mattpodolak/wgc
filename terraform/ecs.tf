@@ -36,7 +36,7 @@ resource "aws_ecs_service" "wgc_service" {
   cluster         = aws_ecs_cluster.wgc_cluster.id           
   task_definition = aws_ecs_task_definition.wgc_task.arn
   launch_type     = "FARGATE"
-  desired_count   = 3 # number of containers we want deploy
+  desired_count   = 3 # number of tasks we want deploy
 
   network_configuration {
     subnets          = [aws_default_subnet.default_subnet_a.id, aws_default_subnet.default_subnet_b.id, aws_default_subnet.default_subnet_c.id]
@@ -46,11 +46,12 @@ resource "aws_ecs_service" "wgc_service" {
 
   load_balancer {
     target_group_arn = aws_lb_target_group.target_group.arn
-    container_name   = "wgc-client-task"
+    container_name   = "wgc-client"
     container_port   = 80
   }
 
   depends_on = [
-    aws_lb_listener.listener
+    aws_lb_listener.http_listener,
+    aws_lb_listener.https_listener
   ]
 }

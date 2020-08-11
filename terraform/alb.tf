@@ -10,7 +10,6 @@ resource "aws_alb" "application_load_balancer" {
   security_groups = [aws_security_group.load_balancer_security_group.id]
 }
 
-#TODO: add HTTPS?
 resource "aws_lb_target_group" "target_group" {
   name        = "wgc-target-group"
   port        = 80
@@ -23,7 +22,7 @@ resource "aws_lb_target_group" "target_group" {
   }
 }
 
-resource "aws_lb_listener" "listener" {
+resource "aws_lb_listener" "http_listener" {
   load_balancer_arn = aws_alb.application_load_balancer.arn
   port              = "80"
   protocol          = "HTTP"
@@ -31,4 +30,19 @@ resource "aws_lb_listener" "listener" {
     type             = "forward"
     target_group_arn = aws_lb_target_group.target_group.arn
   }
+}
+
+resource "aws_lb_listener" "https_listener" {
+  load_balancer_arn = aws_alb.application_load_balancer.arn
+  port              = "443"
+  protocol          = "HTTPS"
+  certificate_arn   = module.acm.this_acm_certificate_arn
+  default_action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.target_group.arn
+  }
+}
+
+output "alb_hostname" {
+  value = "${aws_alb.application_load_balancer.dns_name}"
 }
