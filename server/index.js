@@ -1,12 +1,10 @@
 var nodemailer = require('nodemailer');
 const express = require('express');
-var router = express.Router();
-const path = require('path');
-const enforce = require('express-sslify');
 var bodyParser = require('body-parser');
-var forceSsl = require('force-ssl-heroku');
 
 const app = express();
+
+const port = process.env.PORT || 5000;
 
 var transport = {
     host: 'smtp.gmail.com',
@@ -14,28 +12,24 @@ var transport = {
       user: process.env.USER,
       pass: process.env.PASS
     }
+}
+  
+var transporter = nodemailer.createTransport(transport)
+
+transporter.verify((error, success) => {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log('Server is ready to take messages');
   }
-  
-  var transporter = nodemailer.createTransport(transport)
-  
-  transporter.verify((error, success) => {
-    if (error) {
-      console.log(error);
-    } else {
-      console.log('Server is ready to take messages');
-    }
-  });
+});
 
 // Serve the static files from the React app
-app.use(express.static(path.join(__dirname, '../client/build')));
-
-//force SSL
-//app.use(enforce.HTTPS({ trustProtoHeader: true }));
-app.use(forceSsl);
+// app.use(express.static(path.join(__dirname, '../client/build')));
 
 //parse api req
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.urlencoded({ extended: false }));
 
 // An api endpoint that sends an email
 app.post('/api/send', (req,res) => {
@@ -66,11 +60,16 @@ app.post('/api/send', (req,res) => {
 
 
 // Handles any requests that don't match the ones above
-app.get('*', (req,res) =>{
-    res.sendFile(path.join(__dirname+'../client/build/index.html'));
+// app.get('*', (req,res) =>{
+//     res.sendFile(path.join(__dirname+'../client/build/index.html'));
+// });
+
+app.use((err, req, res, next) => {
+  console.log(err);
+  next();
 });
 
-const port = process.env.PORT || 5000;
-app.listen(port);
 
-console.log('App is listening on port ' + port);
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`)
+});

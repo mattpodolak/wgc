@@ -52,6 +52,6 @@ resource "aws_ecs_service" "wgc_service" {
 
   depends_on = [
     aws_lb_listener.http_listener,
-    aws_lb_listener.https_listener
+    # aws_lb_listener.https_listener
   ]
 }

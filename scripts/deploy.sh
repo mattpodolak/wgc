@@ -11,9 +11,9 @@ docker-compose -f prod-docker-compose.yml build
 aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${AWS_URL}
 
 echo "Tagging and pushing WGC client image to ${ECR_CLIENT_REPO}"
-docker tag p-wgc-client:latest ${ECR_CLIENT_REPO}:latest
+docker tag p-wgc-client-img:latest ${ECR_CLIENT_REPO}:latest
 docker push ${ECR_CLIENT_REPO}:latest
 
 echo "Tagging and pushing WGC server image to ${ECR_SERVER_REPO}"
-docker tag p-wgc-server:latest ${ECR_SERVER_REPO}:latest
+docker tag p-wgc-server-img:latest ${ECR_SERVER_REPO}:latest
 docker push ${ECR_SERVER_REPO}:latest
