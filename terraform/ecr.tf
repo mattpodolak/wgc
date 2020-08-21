@@ -5,10 +5,18 @@ provider "aws" {
 
 resource "aws_ecr_repository" "wgc_client" {
   name = "wgc-client"
+
+  tags = {
+    Project = "wgc"
+  }
 }
 
 resource "aws_ecr_repository" "wgc_server" {
   name = "wgc-server"
+
+  tags = {
+    Project = "wgc"
+  }
 }
 
 output "ecr-urls" {

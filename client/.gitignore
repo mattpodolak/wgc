@@ -24,3 +24,6 @@ yarn-error.log*
 /dist
 # compiled css
 *.css
+
+#ssl certificates
+/certs

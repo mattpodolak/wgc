@@ -25,5 +25,14 @@ LABEL maintainer=Matthew-Podolak
 COPY --from=wgc-app-build /usr/app/client/build/ /var/www
 COPY --from=wgc-app-build /usr/app/client/nginx.conf /etc/nginx/nginx.conf
 
-EXPOSE 80
+# import cert files for SSL
+RUN mkdir -p /etc/ssl/certs
+COPY --from=wgc-app-build /usr/app/client/certs/nginx-selfsigned.crt /etc/ssl/certs
+COPY --from=wgc-app-build /usr/app/client/certs/dhparam.pem /etc/ssl/certs
+
+# import key file for SSL
+RUN mkdir -p /etc/ssl/private
+COPY --from=wgc-app-build /usr/app/client/certs/nginx-selfsigned.key /etc/ssl/private
+
+EXPOSE 443
 ENTRYPOINT ["nginx","-g","daemon off;"]

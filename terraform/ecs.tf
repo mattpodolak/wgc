@@ -14,6 +14,10 @@ data "template_file" "wgc" {
 
 resource "aws_ecs_cluster" "wgc_cluster" {
   name = "wgc-cluster"
+
+  tags = {
+    Project = "wgc"
+  }
 }
 
 # TODO: add code to incorporate docker-compose?
@@ -29,6 +33,10 @@ resource "aws_ecs_task_definition" "wgc_task" {
     aws_ecr_repository.wgc_client,
     aws_ecr_repository.wgc_server
   ]
+
+  tags = {
+    Project = "wgc"
+  }
 }
 
 resource "aws_ecs_service" "wgc_service" {
@@ -36,7 +44,7 @@ resource "aws_ecs_service" "wgc_service" {
   cluster         = aws_ecs_cluster.wgc_cluster.id           
   task_definition = aws_ecs_task_definition.wgc_task.arn
   launch_type     = "FARGATE"
-  desired_count   = 3 # number of tasks we want deploy
+  desired_count   = 2 # number of tasks we want deploy
 
   network_configuration {
     subnets          = [aws_default_subnet.default_subnet_a.id, aws_default_subnet.default_subnet_b.id, aws_default_subnet.default_subnet_c.id]
@@ -47,11 +55,11 @@ resource "aws_ecs_service" "wgc_service" {
   load_balancer {
     target_group_arn = aws_lb_target_group.target_group.arn
     container_name   = "wgc-client"
-    container_port   = 80
+    container_port   = 443
   }
 
   depends_on = [
     aws_lb_listener.http_listener,
-    # aws_lb_listener.https_listener
+    aws_lb_listener.https_listener
   ]
 }
