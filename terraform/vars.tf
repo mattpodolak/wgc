@@ -16,7 +16,7 @@ variable "ENV" {
 }
 
 variable "client_version" {
-    default  = "1.0.1"
+    default  = "1.1.0"
 }
 
 variable "server_version" {

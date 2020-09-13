@@ -3,7 +3,7 @@ ECR_CLIENT_REPO=${AWS_URL}/wgc-client
 ECR_SERVER_REPO=${AWS_URL}/wgc-server
 
 # Docker Image Versions
-CLIENT_VERSION=1.0.1
+CLIENT_VERSION=1.1.0
 SERVER_VERSION=1.0.0
 
 echo "Setting Image Version ENV Variables"

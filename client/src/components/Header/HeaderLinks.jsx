@@ -54,28 +54,41 @@ function HeaderLinks({ ...props }) {
         /> */}
       {/* </ListItem> */}
       <ListItem className={classes.listItem}>
-        <Link to="/" className={classes.dropdownLink}>
-          Home
-        </Link>
+        <Button
+            color="transparent"
+            href="/"
+            className={classes.navLink}
+          >
+            Home
+        </Button>
       </ListItem>
       <ListItem className={classes.listItem}>
-        <Link to="/episodes" className={classes.dropdownLink}>
-          Episodes
-        </Link>
+        <Button
+            color="transparent"
+            href="/about"
+            className={classes.navLink}
+          >
+            About
+        </Button>
       </ListItem>
       <ListItem className={classes.listItem}>
-        <Link to="/contact" className={classes.dropdownLink}>
-          Contact
-        </Link>
+        <Button
+            color="transparent"
+            href="/contact"
+            className={classes.navLink}
+          >
+            Contact
+          </Button>
       </ListItem>
       <ListItem className={classes.listItem}>
-        <a
-          href="https://wildtv.ca"
-          target="_blank"
-          className={classes.dropdownLink}
-        >
-          Wild TV
-        </a>
+        <Button
+            color="transparent"
+            href="https://wildtv.ca"
+            target="_blank"
+            className={classes.navLink}
+          >
+            Wild TV
+          </Button>
       </ListItem>
       {/*<ListItem className={classes.listItem}>
         {/*<Tooltip title="Delete">
@@ -98,7 +111,7 @@ function HeaderLinks({ ...props }) {
             <i className={classes.socialIcons + " fab fa-twitter"} />
           </Button>
         </Tooltip>
-      </ListItem>
+      </ListItem>*/}
       <ListItem className={classes.listItem}>
         <Tooltip
           id="instagram-facebook"
@@ -108,7 +121,7 @@ function HeaderLinks({ ...props }) {
         >
           <Button
             color="transparent"
-            href="https://www.facebook.com"
+            href="https://www.facebook.com/wildgamecooking"
             target="_blank"
             className={classes.navLink}
           >
@@ -125,14 +138,14 @@ function HeaderLinks({ ...props }) {
         >
           <Button
             color="transparent"
-            href="https://www.instagram.com"
+            href="https://www.instagram.com/wildgamecookingtv/"
             target="_blank"
             className={classes.navLink}
           >
             <i className={classes.socialIcons + " fab fa-instagram"} />
           </Button>
         </Tooltip>
-        </ListItem>*/}
+        </ListItem>
     </List>
   );
 }

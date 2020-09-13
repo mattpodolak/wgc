@@ -13,7 +13,7 @@ const pillsStyle = {
   },
   pillText: {
     color: "#3c4858",
-  }
+  },
 };
 
 export default pillsStyle;

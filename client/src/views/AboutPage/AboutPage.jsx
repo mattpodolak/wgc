@@ -21,6 +21,7 @@ import aboutPageStyle from "assets/jss/material-kit-react/views/aboutPage.jsx";
 // Sections for this page
 import SponsorSection from "./Sections/SponsorSection.jsx";
 import AboutPills from "./Sections/AboutPills.jsx";
+import TeamSection from "./Sections/TeamSection.jsx";
 
 const dashboardRoutes = [];
 
@@ -45,7 +46,7 @@ class AboutPage extends React.Component {
           <div className={classes.container}>
             <GridContainer>
               <GridItem xs={12} sm={12} md={6}>
-                <h1 className={classes.title}>Episodes</h1>
+                <h1 className={classes.title}>About</h1>
               </GridItem>
             </GridContainer>
           </div>
@@ -53,6 +54,7 @@ class AboutPage extends React.Component {
         <div className={classNames(classes.main, classes.mainRaised)}>
           <div className={classes.container}>
             <AboutPills />
+            <TeamSection />
             <SponsorSection/>
           </div>
         </div>

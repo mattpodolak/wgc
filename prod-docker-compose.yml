@@ -25,6 +25,8 @@ services:
       dockerfile: Dockerfile
     image: "p-wgc-client-img:${CLIENT_VERSION}"
     container_name: p-wgc-client
+    environment:
+      - NODE_ENV
     depends_on:
       - wgc-server
     ports:

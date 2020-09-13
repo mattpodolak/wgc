@@ -12,12 +12,17 @@ import "assets/scss/material-kit-react.scss?v=1.7.0";
 import LandingPage from "views/LandingPage/LandingPage.jsx";
 import AboutPage from "views/AboutPage/AboutPage.jsx";
 import ContactPage from "views/ContactPage/ContactPage.jsx";
+import './index.css'
 
 var hist = createBrowserHistory();
 
 //initialize GA
-const trackingId = "UA-171074052-1";
-ReactGA.initialize(trackingId);
+if(process.env.NODE_ENV == "production"){
+  const trackingId = "UA-171074052-1";
+  ReactGA.initialize(trackingId);
+  console.log("Google Analytics Initiated");
+}
+
 
 // Initialize google analytics page view tracking
 hist.listen(location => {
@@ -30,7 +35,7 @@ ReactDOM.render(
     <Router history={hist}>
       <Switch>
         <Route exact path="/" component={LandingPage} />
-        <Route path="/episodes" component={AboutPage} />
+        <Route path="/about" component={AboutPage} />
         <Route path="/contact" component={ContactPage} />
       </Switch>
     </Router>

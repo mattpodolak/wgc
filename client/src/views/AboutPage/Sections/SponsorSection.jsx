@@ -19,6 +19,7 @@ import teamStyle from "assets/jss/material-kit-react/views/landingPageSections/t
 import sponsor1 from "assets/img/sponsors/GBS-logo.png";
 import sponsor2 from "assets/img/sponsors/Nutrafarms-logo.png";
 import sponsor3 from "assets/img/sponsors/Wild-Pursuit-logo.png";
+import sponsor4 from "assets/img/sponsors/countrytv.jpg";
 
 class TeamSection extends React.Component {
   render() {
@@ -31,7 +32,7 @@ class TeamSection extends React.Component {
       <div className={classes.section}>
         <h2 className={classes.title}>Sponsors</h2>
         <div>
-          <GridContainer>
+          <GridContainer justify="center" alignItems="center">
             <GridItem xs={12} sm={12} md={4}>
               <Card plain>
                 <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
@@ -91,6 +92,31 @@ class TeamSection extends React.Component {
                     rel="noopener noreferrer"
                   >
                     <img src={sponsor3} alt="..." className={imageClasses} />
+                  </a>
+                </GridItem>
+                <h4 className={classes.cardTitle}>
+                  {/*Rupert Boreland
+                  <br />
+                  <small className={classes.smallTitle}>Host Chef</small>*/}
+                </h4>
+                <CardBody>
+                  {/*<p className={classes.description}>
+                  As a corporate chef, Rupert Boreland has worked in kitchens all around 
+                  the world, from Germany to Toronto and has acquired the highest 
+                  attainable culinary designation CCC (certified chef de cuisine). 
+                  </p>*/}
+                </CardBody>
+              </Card>
+            </GridItem>
+            <GridItem xs={12} sm={12} md={4}>
+              <Card plain>
+                <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
+                  <a
+                    href="https://countrytv.co.nz/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img src={sponsor4} alt="..." className={imageClasses} />
                   </a>
                 </GridItem>
                 <h4 className={classes.cardTitle}>
