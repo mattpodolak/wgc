@@ -9,6 +9,8 @@ data "template_file" "wgc" {
     log_group_region = var.AWS_REGION
     USER = var.ENV["USER"]
     PASS = var.ENV["PASS"]
+    server_version = var.server_version
+    client_version = var.client_version
   }
 }
 
@@ -44,7 +46,7 @@ resource "aws_ecs_service" "wgc_service" {
   cluster         = aws_ecs_cluster.wgc_cluster.id           
   task_definition = aws_ecs_task_definition.wgc_task.arn
   launch_type     = "FARGATE"
-  desired_count   = 2 # number of tasks we want deploy
+  desired_count   = 1 # number of tasks we want deploy
 
   network_configuration {
     subnets          = [aws_default_subnet.default_subnet_a.id, aws_default_subnet.default_subnet_b.id, aws_default_subnet.default_subnet_c.id]

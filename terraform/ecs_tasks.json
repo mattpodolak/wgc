@@ -1,7 +1,7 @@
 [
   {
     "name": "wgc-server",
-    "image": "${server_image_url}",
+    "image": "${server_image_url}:${server_version}",
     "essential": true,
     "memory": 512,
     "cpu": 256,
@@ -36,7 +36,7 @@
   },
   {
     "name": "wgc-client",
-    "image": "${client_image_url}",
+    "image": "${client_image_url}:${client_version}",
     "essential": true,
     "memory": 512,
     "cpu": 256,

@@ -45,7 +45,7 @@ class AboutPage extends React.Component {
           <div className={classes.container}>
             <GridContainer>
               <GridItem xs={12} sm={12} md={6}>
-                <h1 className={classes.title}>About</h1>
+                <h1 className={classes.title}>Episodes</h1>
               </GridItem>
             </GridContainer>
           </div>

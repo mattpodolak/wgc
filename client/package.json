@@ -1,6 +1,6 @@
 {
   "name": "wgc-react",
-  "version": "1.7.0",
+  "version": "1.0.1",
   "description": "Wild Game Cooking Website based off Material Kit React by Creative Tim",
   "private": true,
   "main": "dist/index.js",

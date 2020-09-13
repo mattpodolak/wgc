@@ -24,8 +24,8 @@ function HeaderLinks({ ...props }) {
   const { classes } = props;
   return (
     <List className={classes.list}>
-      <ListItem className={classes.listItem}>
-        <CustomDropdown
+      {/* <ListItem className={classes.listItem}> */}
+        {/* <CustomDropdown
           noLiPadding
           buttonText="Menu"
           buttonProps={{
@@ -51,13 +51,32 @@ function HeaderLinks({ ...props }) {
               Wild TV
             </a>
           ]}
-        />
+        /> */}
+      {/* </ListItem> */}
+      <ListItem className={classes.listItem}>
+        <Link to="/" className={classes.dropdownLink}>
+          Home
+        </Link>
       </ListItem>
-      {/*<ListItem className={classes.listItem}>
-            <Link to="/about" className={classes.dropdownLink}>
-              About
-            </Link>
-        </ListItem>*/}
+      <ListItem className={classes.listItem}>
+        <Link to="/episodes" className={classes.dropdownLink}>
+          Episodes
+        </Link>
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <Link to="/contact" className={classes.dropdownLink}>
+          Contact
+        </Link>
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <a
+          href="https://wildtv.ca"
+          target="_blank"
+          className={classes.dropdownLink}
+        >
+          Wild TV
+        </a>
+      </ListItem>
       {/*<ListItem className={classes.listItem}>
         {/*<Tooltip title="Delete">
           <IconButton aria-label="Delete">

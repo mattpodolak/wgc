@@ -5,7 +5,7 @@ services:
     build:
       context: ./server
       dockerfile: Dockerfile
-    image: p-wgc-server-img
+    image: "p-wgc-server-img:${SERVER_VERSION}"
     container_name: p-wgc-server
     # port mapping
     ports:
@@ -23,7 +23,7 @@ services:
     build:
       context: ./client
       dockerfile: Dockerfile
-    image: p-wgc-client-img
+    image: "p-wgc-client-img:${CLIENT_VERSION}"
     container_name: p-wgc-client
     depends_on:
       - wgc-server

@@ -56,6 +56,7 @@ resource "aws_lb_target_group" "target_group" {
     path = "/"
     interval = 60
     port = 443
+    protocol = "HTTPS"
   }
 
   tags = {

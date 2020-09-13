@@ -30,7 +30,7 @@ ReactDOM.render(
     <Router history={hist}>
       <Switch>
         <Route exact path="/" component={LandingPage} />
-        <Route path="/about" component={AboutPage} />
+        <Route path="/episodes" component={AboutPage} />
         <Route path="/contact" component={ContactPage} />
       </Switch>
     </Router>

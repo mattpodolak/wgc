@@ -14,3 +14,11 @@ variable "ENV" {
         "CERT" = "arn:aws:acm:us-east-1:299559919936:certificate/f3553f76-7219-4b56-abd4-4ff5532ba2e6"
     }
 }
+
+variable "client_version" {
+    default  = "1.0.1"
+}
+
+variable "server_version" {
+    default  = "1.0.0"
+}
