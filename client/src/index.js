@@ -12,12 +12,16 @@ import "assets/scss/material-kit-react.scss?v=1.7.0";
 import LandingPage from "views/LandingPage/LandingPage.jsx";
 import AboutPage from "views/AboutPage/AboutPage.jsx";
 import ContactPage from "views/ContactPage/ContactPage.jsx";
+import RecipePage from "views/RecipePage/RecipePage.jsx";
 import './index.css'
+import BaconWrappedVenison from "views/RecipePage/Recipes/BaconWrappedVenison";
+import PheasantMushroom from "views/RecipePage/Recipes/PheasantMushroom";
+import BearKabob from "views/RecipePage/Recipes/BearKabob";
 
 var hist = createBrowserHistory();
 
 //initialize GA
-if(process.env.NODE_ENV == "production"){
+if(process.env.NODE_ENV === "production"){
   const trackingId = "UA-171074052-1";
   ReactGA.initialize(trackingId);
   console.log("Google Analytics Initiated");
@@ -37,6 +41,10 @@ ReactDOM.render(
         <Route exact path="/" component={LandingPage} />
         <Route path="/about" component={AboutPage} />
         <Route path="/contact" component={ContactPage} />
+        <Route path="/recipes/bacon-wrapped-venison" component={BaconWrappedVenison} />
+        <Route path="/recipes/pheasant-mushroom-sauce" component={PheasantMushroom} />
+        <Route path="/recipes/bear-meat-kabobs" component={BearKabob} />
+        <Route path="/recipes" component={RecipePage} /> 
       </Switch>
     </Router>
   </AppProvider>,

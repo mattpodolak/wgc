@@ -17,8 +17,6 @@ import CardBody from "components/Card/CardBody.jsx";
 import teamStyle from "assets/jss/material-kit-react/views/landingPageSections/teamStyle.jsx";
 
 import team1 from "assets/img/faces/rupert.png";
-import team2 from "assets/img/faces/becky.png";
-import team3 from "assets/img/faces/raffi.png";
 
 class TeamSection extends React.Component {
   render() {
