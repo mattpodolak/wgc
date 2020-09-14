@@ -138,7 +138,10 @@ class Season1Pills extends React.Component {
                 tabContent: (
                   <span className={classes.pillText}>
                     <p>
-                    We will be featuring a couple of fishing trips in this episode, which we have yet to shoot.
+                    Chef Rupert goes out on Lake Ontario with his buddy Russell where they catch a
+salmon and a lake trout. Back in the kitchen, Chef Rupert prepares smoked salmon
+canapés and demonstrates how to do a salt-encrusted trout on black rice with a
+vegetable medley.
                     </p>
                   </span>
                 )
