@@ -17,5 +17,6 @@ jobs:
           heroku_app_name: ''
           heroku_email: ${{ secrets.HEROKU_EMAIL }}
           justlogin: true
+      - run: heroku container:login
       - run: heroku container:push web --app ${{ secrets.HEROKU_STG_APP }}
       - run: heroku container:release web --app ${{ secrets.HEROKU_STG_APP }}
