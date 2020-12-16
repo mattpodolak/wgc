@@ -16,11 +16,6 @@ jobs:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           heroku_app_name: ${{ secrets.HEROKU_STG_APP }}
           heroku_email: ${{ secrets.HEROKU_EMAIL }}
-          healthcheck: ${{ secrets.STG_APP_URL }}
-          delay: 10
-          usedocker: true
-          dontuseforce: true
-        env:
-          HD_NODE_ENV: production
-          HD_USER: ${{ secrets.USER }}
-          HD_PASS: ${{ secrets.PASS }}
+          justlogin: true
+      - run: heroku container:push web
+      - run: heroku container:release web
