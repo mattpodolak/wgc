@@ -55,6 +55,9 @@ class BearKabob extends React.Component {
                     <div>
                       <img src={kabob} alt="..." className={imageClasses} />
                     </div>
+                    <div className={classes.name}>
+                      <h3 className={classes.title}>Middle Eastern Bear Meat Kabobs</h3>
+                    </div>
                   </div>
                 </GridItem>
               </GridContainer>
