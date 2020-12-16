@@ -24,9 +24,6 @@ transporter.verify((error, success) => {
   }
 });
 
-// Serve the static files from the React app
-// app.use(express.static(path.join(__dirname, '../client/build')));
-
 //parse api req
 app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({ extended: false }));
@@ -36,13 +33,16 @@ app.post('/api/send', (req,res) => {
     var name = req.body.name
     var email = req.body.email
     var text = req.body.message
-    var content = 'name: '+ name + '\nemail: ' + email + '\nmessage: ' + text;
+    var content = `A new message from ${name} has been received.\n ${text}`;
+    var htmlContent = `<h3>A new message from ${name} has been received. </h3> <p>${text}</p>`
   
     var mail = {
-      from: name,
-      to: 'wildgamecookingtv@gmail.com', 
+      from: "contact@wildgamecooking.ca",
+      to: 'contact@wildgamecooking.ca', 
       subject: '[Wild Game Cooking] - Contact Form New Message',
-      text: content
+      replyTo: email,
+      text: content,
+      html: htmlContent
     }
 
     transporter.sendMail(mail, (err, data) => {
@@ -59,10 +59,14 @@ app.post('/api/send', (req,res) => {
 });
 
 
-// Handles any requests that don't match the ones above
-// app.get('*', (req,res) =>{
-//     res.sendFile(path.join(__dirname+'../client/build/index.html'));
-// });
+// Configure Express for serving static React production files
+if(process.env.NODE_ENV == "production"){
+  app.use(express.static(path.join(__dirname, 'build')));
+
+  app.get('/*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  });
+}
 
 app.use((err, req, res, next) => {
   console.log(err);
