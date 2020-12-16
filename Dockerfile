@@ -16,7 +16,7 @@ RUN npm ci
 COPY ./client .
 
 # Build production ready React files
-RUN npm run-script build
+RUN npm run build
 
 # Stage 2: Start Express
 FROM node:10.16-alpine
