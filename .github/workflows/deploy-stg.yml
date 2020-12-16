@@ -17,5 +17,6 @@ jobs:
           heroku_app_name: ${{ secrets.HEROKU_STG_APP }}
           heroku_email: ${{ secrets.HEROKU_EMAIL }}
           justlogin: true
-      - run: heroku container:push web
-      - run: heroku container:release web
+      - run: heroku auth:whoami
+      # - run: heroku container:push web
+      # - run: heroku container:release web
