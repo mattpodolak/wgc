@@ -23,7 +23,8 @@ yarn-error.log*
 # package
 /dist
 # compiled css
-*.css
+/src/assets/css/*.css
+/src/assets/css/*.css.map
 
 #ssl certificates
 /certs
