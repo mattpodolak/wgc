@@ -6,6 +6,11 @@ Run Docker Containers: `docker-compose -f dev-docker-compose.yml up --build`
 
 ## Deployment
 
+### Test Deployment
+
+Create docker image: `docker build -t wgc:1.0.0 .`
+Run docker image: `docker run -p 5000:5000 wgc:1.0.0`
+
 ### Staging
 
 Create a PR to `master` and merge to deploy to the staging environment on Heroku.
