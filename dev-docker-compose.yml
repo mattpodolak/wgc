@@ -1,4 +1,4 @@
-version: "3.7"
+version: '3.7'
 services:
   wgc-server:
     # build an image named wgc-server
@@ -11,11 +11,19 @@ services:
     command: npx nodemon index.js
     # volumes to mount
     volumes:
-      - ./server/:/usr/app/server
-      - /usr/app/server/node_modules
+      - type: bind
+        source: ./server
+        target: /usr/app/server
+        volume:
+          nocopy: true
+      - type: bind
+        source: ./server/node_modules
+        target: /usr/app/server/node_modules
+        volume:
+          nocopy: true
     # port mapping
     ports:
-      - "5000:5000"
+      - '5000:5000'
     env_file: .env
     networks:
       - app-network
@@ -31,23 +39,29 @@ services:
     container_name: wgc-client
     command: npm start
     volumes:
-      - ./client/:/usr/app/client
-      - /usr/app/client/node_modules
+      - type: bind
+        source: ./client
+        target: /usr/app/client
+      - type: bind
+        source: ./client/node_modules
+        target: /usr/app/client/node_modules
     depends_on:
       - wgc-server
     ports:
-      - "3000:3000"
+      - '3000:3000'
     env_file: .env
+    environment:
+      - CHOKIDAR_USEPOLLING=true
     networks:
       - app-network
     restart: always
 
 networks:
-    app-network:
-        driver: bridge
+  app-network:
+    driver: bridge
 
 volumes:
-    data-volume:
-    node_modules:
-    web-root:
-      driver: local
+  data-volume:
+  node_modules:
+  web-root:
+    driver: local

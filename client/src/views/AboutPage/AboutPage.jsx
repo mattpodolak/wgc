@@ -21,6 +21,7 @@ import aboutPageStyle from "assets/jss/material-kit-react/views/aboutPage.jsx";
 // Sections for this page
 import SponsorSection from "./Sections/SponsorSection.jsx";
 import AboutPills from "./Sections/AboutPills.jsx";
+import Broadcasters from "./Sections/Broadcasters.jsx";
 import TeamSection from "./Sections/TeamSection.jsx";
 
 const dashboardRoutes = [];
@@ -55,6 +56,7 @@ class AboutPage extends React.Component {
           <div className={classes.container}>
             <AboutPills />
             <TeamSection />
+            <Broadcasters/>
             <SponsorSection/>
           </div>
         </div>

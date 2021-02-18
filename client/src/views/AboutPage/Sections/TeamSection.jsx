@@ -18,6 +18,8 @@ import teamStyle from "assets/jss/material-kit-react/views/landingPageSections/t
 
 import team2 from "assets/img/faces/becky.png";
 import team3 from "assets/img/faces/raffi.png";
+import tillman from "assets/img/faces/tillman.jpg";
+import attilio from "assets/img/faces/attilio.jpg";
 
 class TeamSection extends React.Component {
   render() {
@@ -31,7 +33,7 @@ class TeamSection extends React.Component {
       <div className={classes.section}>
         <h2 className={classes.title}>Guest Chefs - Season 1</h2>
         <div>
-          <GridContainer>
+          <GridContainer >
             <GridItem xs={12} sm={6} md={6}>
               <Card plain>
                 <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
@@ -66,6 +68,50 @@ class TeamSection extends React.Component {
                   A corporate chef and butcher, Chef Raffi is an expert at breaking down 
                   wild game to maximize yield. With his culinary experience, Chef Raffi 
                   presents new ways of preparing wild game, quick, easy and delicious.
+                  </p>
+                </CardBody>
+              </Card>
+            </GridItem>
+            <GridItem xs={12} sm={12} md={12} alignItems='center'>
+              <Card plain>
+                <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
+                  <img src={tillman} alt="..." className={imageClasses} />
+                </GridItem>
+                <h4 className={classes.cardTitle}>
+                  Jason Tilmann
+                  <br />
+                  <small className={classes.smallTitle}>Guest Chef</small>
+                </h4>
+                <CardBody>
+                  <p className={classes.description}>
+                  Having studied with chefs such as Iron Chef Morimoto, Ming Tsai,
+                   David Burke, Norman Love, Chef Jason went on to be executive chef 
+                   at a number of restaurants in New York City and is  currently planning 
+                   to open his own restaurant in Michigan.
+                  </p>
+                </CardBody>
+              </Card>
+            </GridItem>
+          </GridContainer>
+        </div>
+        <h2 className={classes.title}>Guest Chefs - Season 2</h2>
+        <div>
+          <GridContainer>
+            <GridItem xs={12} sm={12} md={12} alignItems='center'>
+              <Card plain>
+                <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
+                  <img src={attilio} alt="..." className={imageClasses} />
+                </GridItem>
+                <h4 className={classes.cardTitle}>
+                  Attilio
+                  <br />
+                  <small className={classes.smallTitle}>Guest Chef</small>
+                </h4>
+                <CardBody>
+                  <p className={classes.description}>
+                  A former Culinary Student of Chef Rupert’s, Attilio 
+                  is a project manager for a manufacturing company and part-time 
+                  corporate Chef.
                   </p>
                 </CardBody>
               </Card>
