@@ -1,31 +1,31 @@
 /*eslint-disable*/
-import React from "react";
-import DeleteIcon from "@material-ui/icons/Delete";
-import IconButton from "@material-ui/core/IconButton";
+import React from 'react';
+import DeleteIcon from '@material-ui/icons/Delete';
+import IconButton from '@material-ui/core/IconButton';
 // react components for routing our app without refresh
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 // @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import Tooltip from "@material-ui/core/Tooltip";
+import withStyles from '@material-ui/core/styles/withStyles';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import Tooltip from '@material-ui/core/Tooltip';
 
 // @material-ui/icons
-import { Apps, CloudDownload } from "@material-ui/icons";
+import { Apps, CloudDownload } from '@material-ui/icons';
 
 // core components
-import CustomDropdown from "components/CustomDropdown/CustomDropdown.jsx";
-import Button from "components/CustomButtons/Button.jsx";
+import CustomDropdown from 'components/CustomDropdown/CustomDropdown.jsx';
+import Button from 'components/CustomButtons/Button.jsx';
 
-import headerLinksStyle from "assets/jss/material-kit-react/components/headerLinksStyle.jsx";
+import headerLinksStyle from 'assets/jss/material-kit-react/components/headerLinksStyle.jsx';
 
 function HeaderLinks({ ...props }) {
   const { classes } = props;
   return (
     <List className={classes.list}>
       {/* <ListItem className={classes.listItem}> */}
-        {/* <CustomDropdown
+      {/* <CustomDropdown
           noLiPadding
           buttonText="Menu"
           buttonProps={{
@@ -54,50 +54,34 @@ function HeaderLinks({ ...props }) {
         /> */}
       {/* </ListItem> */}
       <ListItem className={classes.listItem}>
-        <Button
-            color="transparent"
-            href="/"
-            className={classes.navLink}
-          >
-            Home
+        <Button color="transparent" href="/" className={classes.navLink}>
+          Home
+        </Button>
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <Button color="transparent" href="/about" className={classes.navLink}>
+          About
+        </Button>
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <Button color="transparent" href="/recipes" className={classes.navLink}>
+          Recipes
+        </Button>
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <Button color="transparent" href="/contact" className={classes.navLink}>
+          Contact
         </Button>
       </ListItem>
       <ListItem className={classes.listItem}>
         <Button
-            color="transparent"
-            href="/about"
-            className={classes.navLink}
-          >
-            About
+          color="transparent"
+          href="https://www.thesportsmanchannel.com/"
+          target="_blank"
+          className={classes.navLink}
+        >
+          Sportsman Channel
         </Button>
-      </ListItem>
-      <ListItem className={classes.listItem}>
-        <Button
-            color="transparent"
-            href="/recipes"
-            className={classes.navLink}
-          >
-            Recipes
-        </Button>
-      </ListItem>
-      <ListItem className={classes.listItem}>
-        <Button
-            color="transparent"
-            href="/contact"
-            className={classes.navLink}
-          >
-            Contact
-          </Button>
-      </ListItem>
-      <ListItem className={classes.listItem}>
-        <Button
-            color="transparent"
-            href="https://wildtv.ca"
-            target="_blank"
-            className={classes.navLink}
-          >
-            Wild TV
-          </Button>
       </ListItem>
       {/*<ListItem className={classes.listItem}>
         {/*<Tooltip title="Delete">
@@ -105,7 +89,7 @@ function HeaderLinks({ ...props }) {
             <DeleteIcon />
           </IconButton>
         </Tooltip>*/}
-        {/*<Tooltip
+      {/*<Tooltip
           id="instagram-twitter"
           title="Follow us on twitter"
           placement={window.innerWidth > 959 ? "top" : "left"}
@@ -125,7 +109,7 @@ function HeaderLinks({ ...props }) {
         <Tooltip
           id="instagram-facebook"
           title="Follow us on facebook"
-          placement={window.innerWidth > 959 ? "top" : "left"}
+          placement={window.innerWidth > 959 ? 'top' : 'left'}
           classes={{ tooltip: classes.tooltip }}
         >
           <Button
@@ -134,7 +118,7 @@ function HeaderLinks({ ...props }) {
             target="_blank"
             className={classes.navLink}
           >
-            <i className={classes.socialIcons + " fab fa-facebook"} />
+            <i className={classes.socialIcons + ' fab fa-facebook'} />
           </Button>
         </Tooltip>
       </ListItem>
@@ -142,7 +126,7 @@ function HeaderLinks({ ...props }) {
         <Tooltip
           id="instagram-tooltip"
           title="Follow us on instagram"
-          placement={window.innerWidth > 959 ? "top" : "left"}
+          placement={window.innerWidth > 959 ? 'top' : 'left'}
           classes={{ tooltip: classes.tooltip }}
         >
           <Button
@@ -151,10 +135,10 @@ function HeaderLinks({ ...props }) {
             target="_blank"
             className={classes.navLink}
           >
-            <i className={classes.socialIcons + " fab fa-instagram"} />
+            <i className={classes.socialIcons + ' fab fa-instagram'} />
           </Button>
         </Tooltip>
-        </ListItem>
+      </ListItem>
     </List>
   );
 }

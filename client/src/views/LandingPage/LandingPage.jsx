@@ -1,29 +1,31 @@
-import React from "react";
+import React from 'react';
 // nodejs library to set properties for components
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 // nodejs library that concatenates classes
-import classNames from "classnames";
+import classNames from 'classnames';
 // @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
+import withStyles from '@material-ui/core/styles/withStyles';
 
 // @material-ui/icons
 
 // core components
-import Header from "components/Header/Header.jsx";
-import Footer from "components/Footer/Footer.jsx";
-import GridContainer from "components/Grid/GridContainer.jsx";
-import GridItem from "components/Grid/GridItem.jsx";
-import Button from "components/CustomButtons/Button.jsx";
-import HeaderLinks from "components/Header/HeaderLinks.jsx";
-import Parallax from "components/Parallax/Parallax.jsx";
+import Header from 'components/Header/Header.jsx';
+import Footer from 'components/Footer/Footer.jsx';
+import GridContainer from 'components/Grid/GridContainer.jsx';
+import GridItem from 'components/Grid/GridItem.jsx';
+import Button from 'components/CustomButtons/Button.jsx';
+import HeaderLinks from 'components/Header/HeaderLinks.jsx';
+import Parallax from 'components/Parallax/Parallax.jsx';
 
-import landingPageStyle from "assets/jss/material-kit-react/views/landingPage.jsx";
+import landingPageStyle from 'assets/jss/material-kit-react/views/landingPage.jsx';
 
 // Sections for this page
-import ProductSection from "./Sections/ProductSection.jsx";
-import TeamSection from "./Sections/TeamSection.jsx";
-import WorkSection from "./Sections/WorkSection.jsx";
-import SectionCarousel from "./Sections/SectionCarousel.jsx";
+import ProductSection from './Sections/ProductSection.jsx';
+import TeamSection from './Sections/TeamSection.jsx';
+import WorkSection from './Sections/WorkSection.jsx';
+import SectionCarousel from './Sections/SectionCarousel.jsx';
+
+import logo from 'assets/img/WGCLogo.png';
 
 const dashboardRoutes = [];
 
@@ -40,20 +42,27 @@ class LandingPage extends React.Component {
           fixed
           changeColorOnScroll={{
             height: 400,
-            color: "white"
+            color: 'white',
           }}
           {...rest}
         />
-        <Parallax filter image={require("assets/img/landing-bg.jpg")}>
+        <Parallax filter image={require('assets/img/landing-bg.jpg')}>
           <div className={classes.container}>
             <GridContainer>
               <GridItem xs={12} sm={12} md={6}>
+                <GridItem xs={6} sm={4} md={4}>
+                  <img
+                    src={logo}
+                    alt="Wild Game Cooking with Rupert Boreland"
+                    style={{ width: '100%' }}
+                  />
+                </GridItem>
                 <h1 className={classes.title}>Wild Game Cooking</h1>
                 <h4>
-                Wild Game Cooking demonstrates some quick and easy ways on 
-                how to prepare your wild game. Chef Rupert Boreland, and his 
-                team of guest chefs, will introduce you to new and delicious 
-                ways of cooking and presenting gourmet-style wild game cuisine.
+                  Wild Game Cooking demonstrates some quick and easy ways on how
+                  to prepare your wild game. Chef Rupert Boreland, and his team
+                  of guest chefs, will introduce you to new and delicious ways
+                  of cooking and presenting gourmet-style wild game cuisine.
                 </h4>
                 <br />
                 <Button
@@ -85,7 +94,7 @@ class LandingPage extends React.Component {
 }
 
 LandingPage.propTypes = {
-  classes: PropTypes.object
+  classes: PropTypes.object,
 };
 
 export default withStyles(landingPageStyle)(LandingPage);
