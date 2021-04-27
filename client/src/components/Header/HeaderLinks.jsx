@@ -76,7 +76,7 @@ function HeaderLinks({ ...props }) {
       <ListItem className={classes.listItem}>
         <Button
           color="transparent"
-          href="https://www.thesportsmanchannel.com/"
+          href="https://www.sportsmancanada.ca/"
           target="_blank"
           className={classes.navLink}
         >

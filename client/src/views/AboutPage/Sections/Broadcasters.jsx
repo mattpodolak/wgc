@@ -161,7 +161,7 @@ class Broadcasters extends React.Component {
               <Card plain>
                 <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
                   <a
-                    href="https://www.thesportsmanchannel.com/"
+                    href="https://www.sportsmancanada.ca/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
